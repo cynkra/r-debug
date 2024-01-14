@@ -50,6 +50,41 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@fdf7f43ecf7c1a5c7afe936410233728a8c2d9c2
         with:
+          context: r-devel
+          cache-from: ${{ ( github.event_name != 'schedule' && github.event_name != 'workflow_dispatch' && 'type=gha' ) || '' }}
+          push: false
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@fdf7f43ecf7c1a5c7afe936410233728a8c2d9c2
+        with:
+          context: r-debug-1
+          cache-from: ${{ ( github.event_name != 'schedule' && github.event_name != 'workflow_dispatch' && 'type=gha' ) || '' }}
+          push: false
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@fdf7f43ecf7c1a5c7afe936410233728a8c2d9c2
+        with:
+          context: r-debug-2
+          cache-from: ${{ ( github.event_name != 'schedule' && github.event_name != 'workflow_dispatch' && 'type=gha' ) || '' }}
+          push: false
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@fdf7f43ecf7c1a5c7afe936410233728a8c2d9c2
+        with:
+          context: r-debug-3
+          cache-from: ${{ ( github.event_name != 'schedule' && github.event_name != 'workflow_dispatch' && 'type=gha' ) || '' }}
+          push: false
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@fdf7f43ecf7c1a5c7afe936410233728a8c2d9c2
+        with:
+          context: r-debug-4
+          cache-from: ${{ ( github.event_name != 'schedule' && github.event_name != 'workflow_dispatch' && 'type=gha' ) || '' }}
+          push: false
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@fdf7f43ecf7c1a5c7afe936410233728a8c2d9c2
+        with:
           context: r-debug
           cache-from: ${{ ( github.event_name != 'schedule' && github.event_name != 'workflow_dispatch' && 'type=gha' ) || '' }}
           cache-to: type=gha,mode=max
