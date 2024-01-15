@@ -47,44 +47,49 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
-      - name: Build and push Docker image
+      - name: Build Docker image locally
         uses: docker/build-push-action@fdf7f43ecf7c1a5c7afe936410233728a8c2d9c2
         with:
           context: r-devel
           cache-from: ${{ ( github.event_name != 'schedule' && github.event_name != 'workflow_dispatch' && 'type=gha' ) || '' }}
           push: false
+          load: true
           tags: wch1/r-devel
 
-      - name: Build and push Docker image
+      - name: Build Docker image locally
         uses: docker/build-push-action@fdf7f43ecf7c1a5c7afe936410233728a8c2d9c2
         with:
           context: r-debug-1
           cache-from: ${{ ( github.event_name != 'schedule' && github.event_name != 'workflow_dispatch' && 'type=gha' ) || '' }}
           push: false
+          load: true
           tags: wch1/r-debug-1
 
-      - name: Build and push Docker image
+      - name: Build Docker image locally
         uses: docker/build-push-action@fdf7f43ecf7c1a5c7afe936410233728a8c2d9c2
         with:
           context: r-debug-2
           cache-from: ${{ ( github.event_name != 'schedule' && github.event_name != 'workflow_dispatch' && 'type=gha' ) || '' }}
           push: false
+          load: true
           tags: wch1/r-debug-2
 
-      - name: Build and push Docker image
+      - name: Build Docker image locally
         uses: docker/build-push-action@fdf7f43ecf7c1a5c7afe936410233728a8c2d9c2
         with:
           context: r-debug-3
           cache-from: ${{ ( github.event_name != 'schedule' && github.event_name != 'workflow_dispatch' && 'type=gha' ) || '' }}
           push: false
+          load: true
           tags: wch1/r-debug-3
 
-      - name: Build and push Docker image
+      - name: Build Docker image locally
         uses: docker/build-push-action@fdf7f43ecf7c1a5c7afe936410233728a8c2d9c2
         with:
           context: r-debug-4
           cache-from: ${{ ( github.event_name != 'schedule' && github.event_name != 'workflow_dispatch' && 'type=gha' ) || '' }}
           push: false
+          load: true
           tags: wch1/r-debug-4
 
       - name: Build and push Docker image
