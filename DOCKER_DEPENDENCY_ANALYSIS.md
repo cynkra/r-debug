@@ -6,37 +6,52 @@
 ## Summary
 
 - Total Dockerfiles found: 11
-- Images with local dependencies: 0
-- Build stages required: 0
+- Images with local dependencies: 10
+- Build stages required: 3
 
 ## Dependency Tree
 
 ```text
 ✓ r-debug ← ubuntu:22.04 (external)
-✓ r-debug-csan ← ghcr.io/cynkra/docker-images/r-debug:latest (external)
-✓ r-debug-csan-igraph ← ghcr.io/cynkra/docker-images/r-debug-csan:latest (external)
-✓ r-debug-duckdb ← ghcr.io/cynkra/docker-images/r-debug:latest (external)
-✓ r-debug-san ← ghcr.io/cynkra/docker-images/r-debug:latest (external)
-✓ r-debug-strictbarrier ← ghcr.io/cynkra/docker-images/r-debug:latest (external)
-✓ r-debug-strictbarrier-igraph ← ghcr.io/cynkra/docker-images/r-debug-strictbarrier:latest (external)
-✓ r-debug-threadcheck ← ghcr.io/cynkra/docker-images/r-debug:latest (external)
-✓ r-debug-threadcheck-igraph ← ghcr.io/cynkra/docker-images/r-debug-threadcheck:latest (external)
-✓ r-debug-valgrind ← ghcr.io/cynkra/docker-images/r-debug:latest (external)
-✓ r-debug-valgrind-igraph ← ghcr.io/cynkra/docker-images/r-debug-valgrind:latest (external)
+✓ r-debug-csan ← r-debug ← ghcr.io/cynkra/r-debug/r-debug:latest
+✓ r-debug-csan-igraph ← r-debug-csan ← ghcr.io/cynkra/r-debug/r-debug-csan:latest
+✓ r-debug-duckdb ← r-debug ← ghcr.io/cynkra/r-debug/r-debug:latest
+✓ r-debug-san ← r-debug ← ghcr.io/cynkra/r-debug/r-debug:latest
+✓ r-debug-strictbarrier ← r-debug ← ghcr.io/cynkra/r-debug/r-debug:latest
+✓ r-debug-strictbarrier-igraph ← r-debug-strictbarrier ← ghcr.io/cynkra/r-debug/r-debug-strictbarrier:latest
+✓ r-debug-threadcheck ← r-debug ← ghcr.io/cynkra/r-debug/r-debug:latest
+✓ r-debug-threadcheck-igraph ← r-debug-threadcheck ← ghcr.io/cynkra/r-debug/r-debug-threadcheck:latest
+✓ r-debug-valgrind ← r-debug ← ghcr.io/cynkra/r-debug/r-debug:latest
+✓ r-debug-valgrind-igraph ← r-debug-valgrind ← ghcr.io/cynkra/r-debug/r-debug-valgrind:latest
 ```
 
 ## Build Order (Topological Sort)
+
+### Stage 1
+
+- r-debug
+
+### Stage 2
+
+- r-debug-csan
+- r-debug-duckdb
+- r-debug-san
+- r-debug-strictbarrier
+- r-debug-threadcheck
+- r-debug-valgrind
+
+### Stage 3
+
+- r-debug-csan-igraph
+- r-debug-strictbarrier-igraph
+- r-debug-threadcheck-igraph
+- r-debug-valgrind-igraph
 
 
 ## External Dependencies
 
 ### FROM Dependencies
 
-- `ghcr.io/cynkra/docker-images/r-debug-csan:latest` used by: r-debug-csan-igraph
-- `ghcr.io/cynkra/docker-images/r-debug-strictbarrier:latest` used by: r-debug-strictbarrier-igraph
-- `ghcr.io/cynkra/docker-images/r-debug-threadcheck:latest` used by: r-debug-threadcheck-igraph
-- `ghcr.io/cynkra/docker-images/r-debug-valgrind:latest` used by: r-debug-valgrind-igraph
-- `ghcr.io/cynkra/docker-images/r-debug:latest` used by: r-debug-threadcheck, r-debug-csan, r-debug-san, r-debug-duckdb, r-debug-strictbarrier, r-debug-valgrind
 - `ubuntu:22.04` used by: r-debug
 
 ## FROM Instruction Validation
@@ -44,16 +59,16 @@
 This section shows the expected FROM instructions based on directory hierarchy:
 
 - `r-debug` (root): FROM `ubuntu:22.04` ✓
-- `r-debug-csan`: FROM `ghcr.io/cynkra/docker-images/r-debug:latest` ❌ (should be `ghcr.io/cynkra/r-debug/r-debug:latest`)
-- `r-debug-csan-igraph`: FROM `ghcr.io/cynkra/docker-images/r-debug-csan:latest` ❌ (should be `ghcr.io/cynkra/r-debug/r-debug-csan:latest`)
-- `r-debug-duckdb`: FROM `ghcr.io/cynkra/docker-images/r-debug:latest` ❌ (should be `ghcr.io/cynkra/r-debug/r-debug:latest`)
-- `r-debug-san`: FROM `ghcr.io/cynkra/docker-images/r-debug:latest` ❌ (should be `ghcr.io/cynkra/r-debug/r-debug:latest`)
-- `r-debug-strictbarrier`: FROM `ghcr.io/cynkra/docker-images/r-debug:latest` ❌ (should be `ghcr.io/cynkra/r-debug/r-debug:latest`)
-- `r-debug-strictbarrier-igraph`: FROM `ghcr.io/cynkra/docker-images/r-debug-strictbarrier:latest` ❌ (should be `ghcr.io/cynkra/r-debug/r-debug-strictbarrier:latest`)
-- `r-debug-threadcheck`: FROM `ghcr.io/cynkra/docker-images/r-debug:latest` ❌ (should be `ghcr.io/cynkra/r-debug/r-debug:latest`)
-- `r-debug-threadcheck-igraph`: FROM `ghcr.io/cynkra/docker-images/r-debug-threadcheck:latest` ❌ (should be `ghcr.io/cynkra/r-debug/r-debug-threadcheck:latest`)
-- `r-debug-valgrind`: FROM `ghcr.io/cynkra/docker-images/r-debug:latest` ❌ (should be `ghcr.io/cynkra/r-debug/r-debug:latest`)
-- `r-debug-valgrind-igraph`: FROM `ghcr.io/cynkra/docker-images/r-debug-valgrind:latest` ❌ (should be `ghcr.io/cynkra/r-debug/r-debug-valgrind:latest`)
+- `r-debug-csan`: FROM `ghcr.io/cynkra/r-debug/r-debug:latest` ✓
+- `r-debug-csan-igraph`: FROM `ghcr.io/cynkra/r-debug/r-debug-csan:latest` ✓
+- `r-debug-duckdb`: FROM `ghcr.io/cynkra/r-debug/r-debug:latest` ✓
+- `r-debug-san`: FROM `ghcr.io/cynkra/r-debug/r-debug:latest` ✓
+- `r-debug-strictbarrier`: FROM `ghcr.io/cynkra/r-debug/r-debug:latest` ✓
+- `r-debug-strictbarrier-igraph`: FROM `ghcr.io/cynkra/r-debug/r-debug-strictbarrier:latest` ✓
+- `r-debug-threadcheck`: FROM `ghcr.io/cynkra/r-debug/r-debug:latest` ✓
+- `r-debug-threadcheck-igraph`: FROM `ghcr.io/cynkra/r-debug/r-debug-threadcheck:latest` ✓
+- `r-debug-valgrind`: FROM `ghcr.io/cynkra/r-debug/r-debug:latest` ✓
+- `r-debug-valgrind-igraph`: FROM `ghcr.io/cynkra/r-debug/r-debug-valgrind:latest` ✓
 
 To update FROM instructions automatically, run:
 ```bash

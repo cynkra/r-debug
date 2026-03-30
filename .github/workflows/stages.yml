@@ -28,6 +28,8 @@ jobs:
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
 
   csan-r-debug:
+    needs:
+      - r-debug
     uses: cynkra/r-debug/.github/workflows/publish.yml@main
     with:
       path: r-debug/csan
@@ -38,6 +40,8 @@ jobs:
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
 
   igraph-csan-r-debug:
+    needs:
+      - csan-r-debug
     uses: cynkra/r-debug/.github/workflows/publish.yml@main
     with:
       path: r-debug/csan/igraph
@@ -48,6 +52,8 @@ jobs:
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
 
   duckdb-r-debug:
+    needs:
+      - r-debug
     uses: cynkra/r-debug/.github/workflows/publish.yml@main
     with:
       path: r-debug/duckdb
@@ -58,6 +64,8 @@ jobs:
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
 
   san-r-debug:
+    needs:
+      - r-debug
     uses: cynkra/r-debug/.github/workflows/publish.yml@main
     with:
       path: r-debug/san
@@ -68,6 +76,8 @@ jobs:
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
 
   strictbarrier-r-debug:
+    needs:
+      - r-debug
     uses: cynkra/r-debug/.github/workflows/publish.yml@main
     with:
       path: r-debug/strictbarrier
@@ -78,6 +88,8 @@ jobs:
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
 
   igraph-strictbarrier-r-debug:
+    needs:
+      - strictbarrier-r-debug
     uses: cynkra/r-debug/.github/workflows/publish.yml@main
     with:
       path: r-debug/strictbarrier/igraph
@@ -88,6 +100,8 @@ jobs:
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
 
   threadcheck-r-debug:
+    needs:
+      - r-debug
     uses: cynkra/r-debug/.github/workflows/publish.yml@main
     with:
       path: r-debug/threadcheck
@@ -98,6 +112,8 @@ jobs:
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
 
   igraph-threadcheck-r-debug:
+    needs:
+      - threadcheck-r-debug
     uses: cynkra/r-debug/.github/workflows/publish.yml@main
     with:
       path: r-debug/threadcheck/igraph
@@ -108,6 +124,8 @@ jobs:
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
 
   valgrind-r-debug:
+    needs:
+      - r-debug
     uses: cynkra/r-debug/.github/workflows/publish.yml@main
     with:
       path: r-debug/valgrind
@@ -118,6 +136,8 @@ jobs:
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
 
   igraph-valgrind-r-debug:
+    needs:
+      - valgrind-r-debug
     uses: cynkra/r-debug/.github/workflows/publish.yml@main
     with:
       path: r-debug/valgrind/igraph
