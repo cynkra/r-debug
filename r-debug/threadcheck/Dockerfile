@@ -8,7 +8,7 @@
 FROM ghcr.io/cynkra/r-debug/r-debug:latest
 
 LABEL maintainer="cynkra <team@cynkra.com>"
-LABEL org.opencontainers.image.source="https://github.com/cynkra/docker-images"
+LABEL org.opencontainers.image.source="https://github.com/cynkra/r-debug"
 
 # RDthreadcheck: Make sure that R's memory management functions are called
 # only from the main R thread.

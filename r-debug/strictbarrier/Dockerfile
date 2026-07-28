@@ -8,7 +8,7 @@
 FROM ghcr.io/cynkra/r-debug/r-debug:latest
 
 LABEL maintainer="cynkra <team@cynkra.com>"
-LABEL org.opencontainers.image.source="https://github.com/cynkra/docker-images"
+LABEL org.opencontainers.image.source="https://github.com/cynkra/r-debug"
 
 # RDstrictbarrier: Make sure that R objects are protected properly.
 RUN \
