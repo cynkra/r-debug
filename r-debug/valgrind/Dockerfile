@@ -8,7 +8,7 @@
 FROM ghcr.io/cynkra/r-debug/r-debug:latest
 
 LABEL maintainer="cynkra <team@cynkra.com>"
-LABEL org.opencontainers.image.source="https://github.com/cynkra/docker-images"
+LABEL org.opencontainers.image.source="https://github.com/cynkra/r-debug"
 
 # RDvalgrind: Install R-devel with valgrind level 2 instrumentation
 RUN \

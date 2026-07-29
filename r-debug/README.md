@@ -31,7 +31,7 @@ Each image provides different builds of R-devel:
 For general memory debugging with good performance, start with the SAN build:
 
 ```bash
-docker run --rm -ti --security-opt seccomp=unconfined ghcr.io/cynkra/docker-images/r-debug-san:latest
+docker run --rm -ti --security-opt seccomp=unconfined ghcr.io/cynkra/r-debug/r-debug-san:latest
 RDsan
 ```
 
@@ -39,25 +39,25 @@ RDsan
 
 **Valgrind (slowest but most thorough):**
 ```bash
-docker run --rm -ti --security-opt seccomp=unconfined ghcr.io/cynkra/docker-images/r-debug-valgrind:latest
+docker run --rm -ti --security-opt seccomp=unconfined ghcr.io/cynkra/r-debug/r-debug-valgrind:latest
 RDvalgrind -d valgrind
 ```
 
 **Clang Sanitizers (good performance):**
 ```bash
-docker run --rm -ti --security-opt seccomp=unconfined ghcr.io/cynkra/docker-images/r-debug-csan:latest
+docker run --rm -ti --security-opt seccomp=unconfined ghcr.io/cynkra/r-debug/r-debug-csan:latest
 RDcsan
 ```
 
 **Thread Safety Checking:**
 ```bash
-docker run --rm -ti --security-opt seccomp=unconfined ghcr.io/cynkra/docker-images/r-debug-threadcheck:latest
+docker run --rm -ti --security-opt seccomp=unconfined ghcr.io/cynkra/r-debug/r-debug-threadcheck:latest
 RDthreadcheck
 ```
 
 **Strict Barrier Checking:**
 ```bash
-docker run --rm -ti --security-opt seccomp=unconfined ghcr.io/cynkra/docker-images/r-debug-strictbarrier:latest
+docker run --rm -ti --security-opt seccomp=unconfined ghcr.io/cynkra/r-debug/r-debug-strictbarrier:latest
 RDstrictbarrier
 # In R: gctorture(TRUE) or gctorture2(1, inhibit_release=TRUE)
 ```

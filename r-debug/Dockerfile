@@ -12,7 +12,7 @@ FROM ubuntu:22.04
 COPY date.txt /date.txt
 
 LABEL maintainer="cynkra <team@cynkra.com>"
-LABEL org.opencontainers.image.source="https://github.com/cynkra/docker-images"
+LABEL org.opencontainers.image.source="https://github.com/cynkra/r-debug"
 
 # =====================================================================
 # R
